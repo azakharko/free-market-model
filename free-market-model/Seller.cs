@@ -8,14 +8,16 @@ namespace free_market_model
         public int MinAcceptablePrice { get; set; }
         public int MaxAcceptablePrice { get; set; }
 
-        public Seller()
+        public Seller(int minAcceptablePrice, int maxAcceptablePrice)
         {
             Id = Guid.NewGuid();
+            MinAcceptablePrice = minAcceptablePrice;
+            MaxAcceptablePrice = maxAcceptablePrice;
         }
 
         public override string ToString()
         {
-            return Id.ToString().ToLower();
+            return $"{Id.ToString().ToLower()} - {this.MinAcceptablePrice} - {this.MaxAcceptablePrice}";
         }
     }
 }

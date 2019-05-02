@@ -1,15 +1,23 @@
+using System;
+
 namespace free_market_model
 {
     public class Buyer
     {
+        public Guid Id { get; }
         public int MinPrice { get; set; }
         public int MaxPrice { get; set; }
 
-        public bool Deal(Buyer buyer)
+        public Buyer(int minAcceptablePrice, int maxAcceptablePrice)
         {
-            // 1. compare price - if price range is in both Seller and Buyer expectations then deal and
-            // Seller will slightly increase min-price
-            return true;
+            Id = Guid.NewGuid();
+            MinPrice = minAcceptablePrice;
+            MaxPrice = maxAcceptablePrice;
+        }
+
+        public override string ToString()
+        {
+            return $"{Id.ToString().ToLower()} - {this.MinPrice} - {this.MaxPrice}";
         }
     }
 }
